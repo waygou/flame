@@ -92,7 +92,7 @@ class Panel extends Renderer
         }
 
         // Not finding the Flame Panel creates an Exception since the remaining logic
-        // cannot be processed (attributes finding, twinkles rending, etc).
+        // cannot be processed (attributes finding, twinkles rendering, etc).
         throw FlameException::PanelNotFound(Route::getCurrentRoute()->getActionName());
     }
 
