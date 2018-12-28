@@ -72,6 +72,7 @@ class Renderer
     {
         $namespace = config("flame.groups.{$hint}.namespace");
         $namespaceTail = substr($this->controllerNamespace(), strlen($namespace) + 1);
+
         return collect(explode('\\', $namespaceTail))->splice(0, -2)->implode('.');
     }
 }
