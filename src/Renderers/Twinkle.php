@@ -2,8 +2,8 @@
 
 namespace Waygou\Flame\Renderers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Route;
 use Waygou\Flame\Exceptions\FlameException;
 
 class Twinkle extends Renderer
@@ -91,7 +91,7 @@ class Twinkle extends Renderer
         $response = app()->call("{$namespace}@{$action}", array_merge($arguments, $extraArguments));
 
         // Compute response to be arrayable.
-        $response = !is_array($response) ? [$response] : $response;
+        $response = ! is_array($response) ? [$response] : $response;
 
         // Merge response with the current data.
         $this->data = array_merge_recursive((array) $this->data, $response);

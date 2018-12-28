@@ -2,8 +2,8 @@
 
 namespace Waygou\Flame;
 
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 

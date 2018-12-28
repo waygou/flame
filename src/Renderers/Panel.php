@@ -2,8 +2,8 @@
 
 namespace Waygou\Flame\Renderers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Route;
 use Waygou\Flame\Exceptions\FlameException;
 
 class Panel extends Renderer
@@ -51,7 +51,7 @@ class Panel extends Renderer
             $this->data = $args[0];
         }
 
-        if (isset($args[0]) && !is_array($args[0])) {
+        if (isset($args[0]) && ! is_array($args[0])) {
             $name = $args[0];
         }
 
