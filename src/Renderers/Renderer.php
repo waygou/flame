@@ -2,8 +2,8 @@
 
 namespace Waygou\Flame\Renderers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Route;
 use Waygou\Flame\Exceptions\FlameException;
 
 class Renderer

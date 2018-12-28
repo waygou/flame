@@ -2,8 +2,8 @@
 
 namespace Waygou\Flame\Blade\Directives;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\View;
+use Illuminate\Contracts\Support\Renderable;
 use Waygou\Flame\Renderers\Twinkle as TwinkleRenderer;
 
 class Twinkle extends TwinkleRenderer implements Renderable

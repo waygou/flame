@@ -85,23 +85,23 @@ class MakeFeatureCommand extends Command
         $hint = explode(' ', $hint)[0];
 
         $out = false;
-        while (!$out) {
+        while (! $out) {
             $this->feature = $this->ask('What is your Feature name?');
 
             $out = $this->validateClassName($this->feature);
 
-            if (!$out) {
+            if (! $out) {
                 $this->error('Feature name is blank or invalid (e.g. cannot start with a integer, or a symbol)! Try again.');
             }
         }
 
         $out = false;
-        while (!$out) {
+        while (! $out) {
             $this->action = $this->ask('What is your Action name?');
 
             $out = $this->validateClassName($this->action);
 
-            if (!$out) {
+            if (! $out) {
                 $this->error('Action name is blank or invalid (e.g. cannot start with a integer, or a symbol)! Try again.');
             }
         }
