@@ -67,6 +67,6 @@ class FlameServiceProvider extends ServiceProvider
     protected function loadDemoRoute()
     {
         Route::middleware(['web'])
-             ->group(__DIR__ . '/../routes/flame.php');
+             ->group(__DIR__.'/../routes/flame.php');
     }
 }
