@@ -94,9 +94,6 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    @twinkle('image')
-                </div>
-                <div class="title m-b-md">
                     @twinkle('title')
                 </div>
 
