@@ -5,9 +5,9 @@ namespace Waygou\Flame;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class FlameServiceProvider extends ServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
     public function boot()
     {
