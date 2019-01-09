@@ -194,7 +194,7 @@ class MakeFeatureCommand extends Command
 
         // Welcome Twinkle.
         $this->parseFile(
-            __DIR__ . "/../resources/scaffolding/{$root}/Feature/Twinkles/welcome.blade.php.stub",
+            __DIR__."/../resources/scaffolding/{$root}/Feature/Twinkles/welcome.blade.php.stub",
             $this->basePath.'/Twinkles/welcome.blade.php',
             ['{{feature}}'],
             [$this->feature]
@@ -202,7 +202,7 @@ class MakeFeatureCommand extends Command
 
         // Feature Controller.
         $this->parseFile(
-            __DIR__ . "/../resources/scaffolding/{$root}/Feature/Controllers/FeatureController.php.stub",
+            __DIR__."/../resources/scaffolding/{$root}/Feature/Controllers/FeatureController.php.stub",
             $this->basePath."/Controllers/{$this->feature}Controller.php",
             ['{{namespace}}', '{{controller_name}}', '{{action}}'],
             [config("flame.groups.{$this->group}.namespace").'\\'.$this->feature.'\\Controllers', "{$this->feature}Controller", $this->action]
@@ -210,7 +210,7 @@ class MakeFeatureCommand extends Command
 
         // Twinkle Controller.
         $this->parseFile(
-            __DIR__ . "/../resources/scaffolding/{$root}/Feature/Controllers/WelcomeController.php.stub",
+            __DIR__."/../resources/scaffolding/{$root}/Feature/Controllers/WelcomeController.php.stub",
             $this->basePath.'/Controllers/WelcomeController.php',
             ['{{namespace}}', '{{action}}'],
             [config("flame.groups.{$this->group}.namespace").'\\'.$this->feature.'\\Controllers', $this->action]
@@ -218,7 +218,7 @@ class MakeFeatureCommand extends Command
 
         // Panel.
         $this->parseFile(
-            __DIR__ . "/../resources/scaffolding/{$root}/Feature/Panels/default.blade.php.stub",
+            __DIR__."/../resources/scaffolding/{$root}/Feature/Panels/default.blade.php.stub",
             $this->basePath."/Panels/{$this->action}.blade.php"
         );
     }
