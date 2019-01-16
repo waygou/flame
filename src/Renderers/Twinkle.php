@@ -85,7 +85,7 @@ class Twinkle extends Renderer
         $extraArguments = [];
         if (count($ref->getParameters()) > 0) {
             foreach ($ref->getParameters() as $data) {
-                if (!is_null($data->getType())) {
+                if (! is_null($data->getType())) {
                     $extraArguments[$data->getName()] = app()->make((string) $data->getType());
                 }
             }
