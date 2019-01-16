@@ -80,10 +80,14 @@ class Twinkle extends Renderer
         // Verify if there are extra parameters in the method that need depedency injection.
         $ref = new \ReflectionMethod($namespace, $action);
 
+        //dd($ref, $router->getCurrentRoute()->parameters);
+
         $extraArguments = [];
         if (count($ref->getParameters()) > 0) {
             foreach ($ref->getParameters() as $data) {
-                $extraArguments[$data->getName()] = app()->make((string) $data->getType());
+                if (!is_null($data->getType())) {
+                    $extraArguments[$data->getName()] = app()->make((string) $data->getType());
+                }
             }
         }
 
