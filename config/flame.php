@@ -1,5 +1,8 @@
 <?php
 
+use Waygou\Flame\PathFinders\FlamePathFinder;
+use Waygou\Flame\PathFinders\ApplicationPathFinder;
+
 return [
 
     'groups' => [
@@ -24,17 +27,19 @@ return [
 
         'demo' => [
             'namespace' => 'Waygou\Flame\Features',
-            'path'      => base_path('vendor/waygou/flame/src/Features'),
+            'path'      => FlamePathFinder::class,
         ],
 
         /* Suggested namespace group for your Laravel app.
-            It will create features in your app/Flame/Features folder.
+            It will create features in your Your/Application/Features folder.
+            You need to replace the \Your\Application\Features to your base
+            namespace where you want the Features to be created.
             You can then use the command:
             php artisan make:feature flame ManageCars (as example)! Have fun!
         */
         'flame' => [
-            'namespace' => 'App\Flame\Features',
-            'path'      => base_path('app/Flame/Features'),
+            'namespace' => 'Your\Application\Features',
+            'path'      => ApplicationPathFinder::class,
         ],
         /*****/
     ],
