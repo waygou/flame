@@ -55,7 +55,12 @@ class ServiceProvider extends BaseServiceProvider
     protected function loadConfigurationGroups()
     {
         collect(config('flame.groups'))->each(function ($item, $key) {
-            $this->loadViewsFrom($item['path'], $key);
+
+            if (class_exists($item['path'])) {
+                $this->loadViewsFrom(app($item['path'])(), $key);
+            } else {
+                $this->loadViewsFrom($item['path'], $key);
+            }
         });
     }
 

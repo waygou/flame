@@ -6,6 +6,6 @@ class FlamePathFinder
 {
     public function __invoke()
     {
-        return __DIR__.'/../Features/';
+        return __DIR__.'/../Features';
     }
 }
