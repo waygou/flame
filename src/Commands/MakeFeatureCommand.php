@@ -112,13 +112,13 @@ class MakeFeatureCommand extends Command
 
         if (is_null(config("flame.groups.{$this->group}.path"))) {
             $this->error('Your feature namespace path cannot be null. Please check your flame.php configuration file.');
-        };
+        }
 
         if (gettype(app(config("flame.groups.{$this->group}.path"))) == 'object') {
             $this->basePath = app(config("flame.groups.{$this->group}.path"))();
         } else {
             $this->basePath = config("flame.groups.{$this->group}.path");
-        };
+        }
 
         $this->basePath = app(config("flame.groups.{$this->group}.path")."/{$this->feature}")();
         $this->action = camel_case($this->action);
