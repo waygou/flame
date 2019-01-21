@@ -1,7 +1,6 @@
 <?php
 
 use Waygou\Flame\PathFinders\FlamePathFinder;
-use Waygou\Flame\PathFinders\ApplicationPathFinder;
 
 return [
 
