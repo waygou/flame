@@ -7,6 +7,6 @@ class FlamePathFinder
 
     function __invoke()
     {
-        return 'this is my flame path finder.';
+        return __DIR__ . '/../Features/';
     }
 }

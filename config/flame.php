@@ -34,12 +34,13 @@ return [
             It will create features in your Your/Application/Features folder.
             You need to replace the \Your\Application\Features to your base
             namespace where you want the Features to be created.
-            You can then use the command:
-            php artisan make:feature flame ManageCars (as example)! Have fun!
+
+            You need to replace the path by a specific string, function or
+            an invokable class (__invoke()).
         */
         'flame' => [
             'namespace' => 'Your\Application\Features',
-            'path'      => ApplicationPathFinder::class,
+            'path'      => null,
         ],
         /*****/
     ],

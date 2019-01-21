@@ -110,6 +110,13 @@ class MakeFeatureCommand extends Command
         $this->group = $hint;
         $this->feature = studly_case($this->feature);
 
+        $this->basePath = $this->iteratePath(config("flame.groups.{$this->group}.path")) != null ?
+                          $this->iteratePath(config("flame.groups.{$this->group}.path")):
+                          $this->error('Your Feature namespace path cannot be null. Please check you flame.php configuration file.');
+
+        dd($this->basePath);
+
+        // Calculate namespace file path.
         if (is_null(config("flame.groups.{$this->group}.path"))) {
             $this->error('Your feature namespace path cannot be null. Please check your flame.php configuration file.');
         };
@@ -120,7 +127,6 @@ class MakeFeatureCommand extends Command
             $this->basePath = config("flame.groups.{$this->group}.path");
         };
 
-        $this->basePath = app(config("flame.groups.{$this->group}.path")."/{$this->feature}")();
         $this->action = camel_case($this->action);
         $this->controllerNamespace = config("flame.groups.{$this->group}.namespace").
                                      '\\'.
@@ -163,6 +169,24 @@ class MakeFeatureCommand extends Command
             $this->info('');
             $this->info('Build something amazing!');
         }
+    }
+
+    /**
+     * Iterate the base path (invokable, or string?).
+     * @param  string $configPath The flame configuration path.
+     * @return string             The path.
+     */
+    protected function iteratePath($configPath)
+    {
+        if (is_null($configPath)) {
+            return null;
+        };
+
+        if (gettype(app($configPath)) == 'object') {
+            return app($configPath)();
+        } else {
+            return config("flame.groups.{$this->group}.path");
+        };
     }
 
     protected function validateClassName($name)
