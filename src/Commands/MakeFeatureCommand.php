@@ -169,7 +169,7 @@ class MakeFeatureCommand extends Command
     protected function iteratePath($configPath)
     {
         if (is_null($configPath)) {
-            return null;
+            return;
         }
 
         if (gettype($configPath) == 'object') {
