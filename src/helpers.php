@@ -1,21 +1,25 @@
 <?php
 
 use Waygou\Flame\Renderers\Panel;
+use Waygou\Flame\Exceptions\FlameException;
 
 function flame(...$args)
 {
     return (new Panel($args))->makeView();
 }
 
-function getCalculatedPath($configPath)
+function namespaceGroupAbsolutePath($namespaceGroup)
 {
-    if (is_null($configPath)) {
-        return;
+    // Config path exists?
+    if (is_null(array_get(config('flame'), "groups.{$namespaceGroup}.path"))) {
+        throw FlameException::configurationNamespacePathNotFound("flame.groups.{$namespaceGroup}.path");
     }
 
-    if (gettype(app($configPath)) == 'object') {
-        return app($configPath)();
-    } else {
-        return config("flame.groups.{$this->group}.path");
+    $value = config("flame.groups.{$namespaceGroup}.path");
+
+    if (class_exists($value)) {
+        $value = app($value)();
     }
+
+    return $value;
 }

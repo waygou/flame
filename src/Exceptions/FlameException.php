@@ -20,4 +20,9 @@ class FlameException extends Exception
     {
         return new static(sprintf('Twinkle %s not found', $twinkle));
     }
+
+    public static function configurationNamespacePathNotFound($path)
+    {
+        return new static(sprintf('Configuration key %s invalid, null or inexistent. Please check your flame.php configuration file', $path));
+    }
 }
