@@ -87,7 +87,7 @@ class MakeFeatureCommand extends Command
         $out = false;
         while (! $out) {
             $this->feature = $this->ask("What is your Feature name (can be like 'Welcome' or 'Services/Welcome' in case you want to create a directory) ?");
-            $this->featureNamespace = str_replace("/", "\\", $this->feature);
+            $this->featureNamespace = str_replace('/', '\\', $this->feature);
 
             $out = $this->validateClassName($this->feature);
 
@@ -117,7 +117,7 @@ class MakeFeatureCommand extends Command
         }
 
         $this->basePath = group_absolute_path($this->group);
-        $this->fullPath = $this->basePath . '/' . str_replace('/', '\\', $this->feature);
+        $this->fullPath = $this->basePath.'/'.str_replace('/', '\\', $this->feature);
 
         $this->action = camel_case($this->action);
         $this->controllerNamespace = config("flame.groups.{$this->group}.namespace").
@@ -222,7 +222,7 @@ class MakeFeatureCommand extends Command
         // Welcome Twinkle.
         $this->parseFile(
             __DIR__."/../../resources/scaffolding/{$root}/Feature/Twinkles/welcome.blade.php.stub",
-            $this->fullPath . '/Twinkles/welcome.blade.php',
+            $this->fullPath.'/Twinkles/welcome.blade.php',
             ['{{feature}}'],
             [$this->feature]
         );
@@ -230,23 +230,23 @@ class MakeFeatureCommand extends Command
         // Feature Controller.
         $this->parseFile(
             __DIR__."/../../resources/scaffolding/{$root}/Feature/Controllers/FeatureController.php.stub",
-            $this->fullPath . "/Controllers/{$this->feature}Controller.php",
+            $this->fullPath."/Controllers/{$this->feature}Controller.php",
             ['{{namespace}}', '{{controller_name}}', '{{action}}'],
-            [config("flame.groups.{$this->group}.namespace").'\\' . $this->feature . '\\Controllers', "{$this->feature}Controller", $this->action]
+            [config("flame.groups.{$this->group}.namespace").'\\'.$this->feature.'\\Controllers', "{$this->feature}Controller", $this->action]
         );
 
         // Twinkle Controller.
         $this->parseFile(
             __DIR__."/../../resources/scaffolding/{$root}/Feature/Controllers/WelcomeController.php.stub",
-            $this->fullPath . '/Controllers/WelcomeController.php',
+            $this->fullPath.'/Controllers/WelcomeController.php',
             ['{{namespace}}', '{{action}}'],
-            [config("flame.groups.{$this->group}.namespace").'\\'. $this->feature .'\\Controllers', $this->action]
+            [config("flame.groups.{$this->group}.namespace").'\\'.$this->feature.'\\Controllers', $this->action]
         );
 
         // Panel.
         $this->parseFile(
             __DIR__."/../../resources/scaffolding/{$root}/Feature/Panels/default.blade.php.stub",
-            $this->fullPath . "/Panels/{$this->action}.blade.php"
+            $this->fullPath."/Panels/{$this->action}.blade.php"
         );
     }
 
@@ -274,9 +274,9 @@ class MakeFeatureCommand extends Command
      */
     protected function makeFeatureDirectories()
     {
-        File::makeDirectories([$this->basePath . '/' . $this->feature,
-                               $this->basePath . '/' . $this->feature . '/Twinkles',
-                               $this->basePath . '/' . $this->feature . '/Panels',
-                               $this->basePath . '/' . $this->feature . '/Controllers', ]);
+        File::makeDirectories([$this->basePath.'/'.$this->feature,
+                               $this->basePath.'/'.$this->feature.'/Twinkles',
+                               $this->basePath.'/'.$this->feature.'/Panels',
+                               $this->basePath.'/'.$this->feature.'/Controllers', ]);
     }
 }
